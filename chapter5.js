@@ -25,3 +25,11 @@
 // were objects. There are three primitive wrapper types: Boolean, Number, and String. They all have the
 // following characteristics:
   // ➤ Each of the wrapper types maps to the primitive type of the same name.
+  // ➤ When a primitive value is accessed in read mode, a primitive wrapper object is instantiated so that it can be
+  //   used to manipulate the data.
+  // ➤ As soon as a statement involving a primitive value is executed, the wrapper object is destroyed.
+
+// There are also two built-in objects that exist at the beginning of code execution: Global and Math.
+// The Global object isn’t accessible in most ECMAScript implementations; however, web browsers implement it
+// as the window object. The Global object contains all global variables and functions as properties. The Math
+// object contains properties and methods to aid in complex mathematical calculations.
