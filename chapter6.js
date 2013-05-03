@@ -97,3 +97,27 @@ var person1 = new Person(“Nicholas”, 29, “Software Engineer”);
 var person2 = new Person(“Greg”, 27, “Doctor”);
 
 // ECMA-262 describes prototype chaining as the primary method of inheritance in ECMAScript.
+
+// Combination inheritance (sometimes also called pseudoclassical inheritance) combines prototype
+// chaining and constructor stealing to get the best of each approach. The basic idea is to use
+// prototype chaining to inherit properties and methods on the prototype and to use constructor stealing
+// to inherit instance properties. This allows function reuse by defining methods on the prototype and
+// allows each instance to have its own properties. Consider the following:
+
+function SuperType(name){
+  this.name = name;
+  this.colors = [“red”, “blue”, “green”];
+}
+SuperType.prototype.sayName = function(){
+  alert(this.name);
+};
+function SubType(name, age){
+  //inherit properties
+  SuperType.call(this, name);
+  this.age = age;
+}
+//inherit methods
+SubType.prototype = new SuperType();
+SubType.prototype.sayAge = function(){
+  alert(this.age);
+};
