@@ -73,3 +73,27 @@ Person.prototype = {      // Shorter prototype syntax
         alert(this.name);
     }
 };
+
+// The most common way of defining custom types is to combine the constructor and prototype patterns.
+// The constructor pattern defines instance properties, whereas the prototype pattern defines methods
+// and shared properties. With this approach, each instance ends up with its own copy of
+// the instance properties, but they all share references to methods, conserving memory. This pattern
+// allows arguments to be passed into the constructor as well, effectively combining the best parts of
+// each pattern. The previous example can now be rewritten as follows:
+
+function Person(name, age, job){
+  this.name = name;
+  this.age = age;
+  this.job = job;
+  this.friends = [“Shelby”, “Court”];
+}
+Person.prototype = {
+  constructor: Person,
+  sayName : function () {
+    alert(this.name);
+  }
+};
+var person1 = new Person(“Nicholas”, 29, “Software Engineer”);
+var person2 = new Person(“Greg”, 27, “Doctor”);
+
+// ECMA-262 describes prototype chaining as the primary method of inheritance in ECMAScript.
